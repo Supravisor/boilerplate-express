@@ -3,6 +3,10 @@ require("dotenv").config();
 let express = require('express');
 let app = express();
 
+app.get("/:word/echo", function(req, res) {
+    res.json({ echo: req.params.word });
+});
+
 app.get("/now", function(req, res, next) {
   const time = new Date();
   req.time = new Date(Number(time)+26000)
