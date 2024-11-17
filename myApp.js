@@ -1,3 +1,7 @@
+let bodyParser = require('body-parser');
+
+app.use("/", bodyParser.urlencoded( {extended: false} ));
+
 require("dotenv").config();
 
 let express = require('express');
