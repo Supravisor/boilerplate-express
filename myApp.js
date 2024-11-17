@@ -4,12 +4,12 @@ let express = require('express');
 let app = express();
 
 app.get("/now", function(req, res, next) {
-  req.time = new Date().toString();
+  const time = new Date();
+  req.time = new Date(Number(time)+26000)
+
   next();
 }, function(req, res) {
-     setTimeout(function() {
-      res.send( {time: req.time} );
-     }, 1000);
+    res.send( {time: req.time} );
 });
 
 console.log("Hello World");
